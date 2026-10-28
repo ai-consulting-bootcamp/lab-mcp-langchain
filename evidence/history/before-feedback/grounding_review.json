@@ -1,0 +1,339 @@
+{
+  "scenario": "combined",
+  "original_run": {
+    "query": "Read mcp_servers_local_vs_remote.md: how does it configure a local Filesystem MCP server? Then search the official Python LangChain documentation for local stdio MCP connections. Which transport fits that configuration, and does using that transport alone guarantee that file contents remain on this computer when the local Python agent uses hosted ChatOpenAI? This is not a Managed Deep Agents deployment. Separate source evidence from the inference about hosted model data flow.",
+    "answer": "The document **mcp_servers_local_vs_remote.md** explains that a local Filesystem MCP server is configured using the command `uvx` for Python, which starts the server on your computer. The transport method for local servers is `stdio`, allowing communication through standard input and output (source: mcp_servers_local_vs_remote.md).\n\nIn the official LangChain documentation, local stdio MCP connections are described as being initiated via the `MCPAdapter`, which can connect to both local stdio servers and remote HTTP servers simultaneously. The `stdio` transport is specifically for launching scripts as subprocesses (source: [Transports](https://docs.langchain.com/oss/python/langchain/mcp/index#transports)).\n\nUsing the `stdio` transport does not guarantee that file contents remain on the local computer when the local Python agent uses hosted ChatOpenAI. The hosted model operates independently of the local environment, meaning that while the local server may handle files locally, any data processed by the hosted model could potentially be sent to external servers, depending on the configuration and usage of the hosted model (source: [Connections](https://docs.langchain.com/oss/python/langchain/mcp/connections)).",
+    "call_ids": [
+      "call-005",
+      "call-006",
+      "call-007",
+      "call-008"
+    ],
+    "required_servers": [
+      "filesystem",
+      "langchain-docs"
+    ],
+    "observed_servers": [
+      "filesystem",
+      "langchain-docs"
+    ],
+    "messages": [
+      {
+        "content": "Read mcp_servers_local_vs_remote.md: how does it configure a local Filesystem MCP server? Then search the official Python LangChain documentation for local stdio MCP connections. Which transport fits that configuration, and does using that transport alone guarantee that file contents remain on this computer when the local Python agent uses hosted ChatOpenAI? This is not a Managed Deep Agents deployment. Separate source evidence from the inference about hosted model data flow.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "bbdf2ae3-9544-4864-926d-3525fdad17b5"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 104,
+            "prompt_tokens": 459,
+            "total_tokens": 563,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-4o-mini-2024-07-18",
+          "system_fingerprint": "fp_242228cf5a",
+          "id": "chatcmpl-EdzTUcZQrLakAdGMZKELmc7LEDx6G",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18309-9ad1-7532-8507-35d76f2d5c58-0",
+        "tool_calls": [
+          {
+            "name": "list_directory",
+            "args": {
+              "path": "F:\\UserData\\Desktop\\AI_Consulting_and_Integration\\Week_04\\Day_3\\lab-mcp-langchain\\sample_docs"
+            },
+            "id": "call_p2it7tIfeR4cyGv589XjA8gH",
+            "type": "tool_call"
+          },
+          {
+            "name": "list_directory",
+            "args": {
+              "path": "F:\\UserData\\Desktop\\AI_Consulting_and_Integration\\Week_04\\Day_3\\lab-mcp-langchain\\sample_docs"
+            },
+            "id": "call_2auQLJ326CuZHGIQNdvrzgI8",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 459,
+          "output_tokens": 104,
+          "total_tokens": 563,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "[FILE] mcp_servers_local_vs_remote.md\n[FILE] mcp_tools_resources_prompts.md",
+            "id": "lc_7c54fb0c-04bb-4435-a5e4-a8a57092a5f5"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "list_directory",
+        "id": "ed094506-1784-4429-92b1-ca73ac7da6c7",
+        "tool_call_id": "call_p2it7tIfeR4cyGv589XjA8gH",
+        "artifact": {
+          "structured_content": {
+            "content": "[FILE] mcp_servers_local_vs_remote.md\n[FILE] mcp_tools_resources_prompts.md"
+          }
+        },
+        "status": "success"
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "[FILE] mcp_servers_local_vs_remote.md\n[FILE] mcp_tools_resources_prompts.md",
+            "id": "lc_c668864f-1f1d-4ff8-b7ba-9ad5befc95f8"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "list_directory",
+        "id": "ac1d3472-1de0-426c-894b-74b82820cac3",
+        "tool_call_id": "call_2auQLJ326CuZHGIQNdvrzgI8",
+        "artifact": {
+          "structured_content": {
+            "content": "[FILE] mcp_servers_local_vs_remote.md\n[FILE] mcp_tools_resources_prompts.md"
+          }
+        },
+        "status": "success"
+      },
+      {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 90,
+            "prompt_tokens": 1129,
+            "total_tokens": 1219,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-4o-mini-2024-07-18",
+          "system_fingerprint": "fp_242228cf5a",
+          "id": "chatcmpl-EdzTbomkDAcD3lIR8H0GstpJZOLRD",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18309-b581-741a-a7cb-8e0d05bbc224-0",
+        "tool_calls": [
+          {
+            "name": "read_text_file",
+            "args": {
+              "path": "F:\\UserData\\Desktop\\AI_Consulting_and_Integration\\Week_04\\Day_3\\lab-mcp-langchain\\sample_docs\\mcp_servers_local_vs_remote.md"
+            },
+            "id": "call_EWlalddpzD2gFunqht4Hti7l",
+            "type": "tool_call"
+          },
+          {
+            "name": "search_docs_by_lang_chain",
+            "args": {
+              "query": "local stdio MCP connections"
+            },
+            "id": "call_4uN28UuMR7TqjwizuLrzm6q1",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 1129,
+          "output_tokens": 90,
+          "total_tokens": 1219,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        }
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "# Where Does an MCP Server Live?\n\nEvery MCP server lives in **one of two places**. That one fact decides how you connect to it.\n\n| | \u2601\ufe0f **Remote** | \ud83d\udcbb **Local** |\n|---|---|---|\n| **Where it runs** | On someone else's computer | On **your** computer |\n| **What you do** | You **call** it | You **start** it |\n| **What you need** | A **URL** | A **command** (`npx` or `uvx`) |\n| **Transport** | `http` | `stdio` |\n\n---\n\n## \u2601\ufe0f Remote server: you need a **URL**\n\nSomeone else (LangChain, GitHub, ...) runs the server for you. It's always on. You just call its address.\n\n```python\n\"langchain-docs\": {\n    \"transport\": \"http\",\n    \"url\": \"https://docs.langchain.com/mcp\",\n}\n```\n\n\ud83d\udcde **Like calling a company:** you only need their phone number.\n\n---\n\n## \ud83d\udcbb Local server: you need a **command**\n\nNobody runs the server for you. Your code **starts** it on your laptop when it needs it.\n\nThe command depends on **which language the server was written in**:\n\n| Server written in | Command | You need installed | Where the server comes from |\n|---|---|---|---|\n| **JavaScript** | `npx` | Node.js | npm |\n| **Python** | `uvx` | uv | PyPI |\n\n### \ud83d\udee0\ufe0f How to install them\n\n| | **Node.js** (gives you `npx`) | **uv** (gives you `uvx`) |\n|---|---|---|\n| **Easiest way** | Download the **LTS** installer from [nodejs.org](https://nodejs.org) and click through it | In your terminal (with your course environment active): `pip install uv` |\n| **Windows** (alternative) | `winget install OpenJS.NodeJS.LTS` | `powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 \\| iex\"` |\n| **Mac** (alternative) | `brew install node` | `curl -LsSf https://astral.sh/uv/install.sh \\| sh` |\n| **Check it worked** | `node -v` and `npx -v` | `uvx --version` |\n| **Then** | Restart VS Code | Restart VS Code / the notebook kernel |\n\n### JavaScript server: `npx`\n\n```python\n\"filesystem\": {\n    \"transport\": \"stdio\",\n    \"command\": \"npx\",\n    \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"sample_docs\"],\n}\n```\n\n### Python server: `uvx`\n\n```python\n\"time\": {\n    \"transport\": \"stdio\",\n    \"command\": \"uvx\",\n    \"args\": [\"mcp-server-time\"],\n}\n```\n\n\ud83e\uddd1\u200d\ud83d\udcbc **Like bringing an assistant to your desk:** they aren't there until you invite them.\n\n> \ud83d\udca1 `npx` and `uvx` do the same job for different languages: **download the server and start it** in one step.\n\n---\n\n## How do I know which one to use?\n\nLook at the server's README. It always tells you one of these:\n\n| If the README shows... | It's a... | You write... |\n|---|---|---|\n| A link like `https://.../mcp` | \u2601\ufe0f Remote server | `\"transport\": \"http\"` + `\"url\"` |\n| `npx ...` | \ud83d\udcbb Local JavaScript server | `\"transport\": \"stdio\"` + `\"command\": \"npx\"` |\n| `uvx ...` | \ud83d\udcbb Local Python server | `\"transport\": \"stdio\"` + `\"command\": \"uvx\"` |\n\n---\n\n## \ud83d\udd0e Where do I find MCP servers?\n\nLook in this order:\n\n| # | Where | What you get there | Trust |\n|---|---|---|---|\n| 1 | **The company's own docs** (GitHub, Notion, Stripe, Atlassian...) | The **official** server for their product, with setup and login steps | \u2705 Best choice |\n| 2 | **Official MCP Registry**: [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) | The official list. Each entry shows the **package name**, **version**, **local or remote**, and a **link to the code** | \u2705 Publisher is checked, code is not |\n| 3 | **Smithery**: [smithery.ai](https://smithery.ai) | Big catalog with **usage numbers**, a **security scan** result, ready **install commands**, and an option to **run the server for you** (hosted) | \u26a0\ufe0f Check each server |\n| 4 | **PulseMCP** ([pulsemcp.com](https://www.pulsemcp.com)), **mcp.so** | Large community directories with search and short descriptions. Good for **discovering ideas** | \u26a0\ufe0f Anyone can be listed |\n| 5 | **Reference servers**: [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 7 small example servers (Filesystem, Time, Fetch...) | \ud83c\udf93 For **learning** only |\n\n> \ud83d\udca1 **Quick tip:** in the official registry, a name like `io.github.<company>/...` or `com.<company>/...` means that company really published it.\n\n---\n\n## \ud83d\udee1\ufe0f Can I trust this server?\n\nAn MCP server is **code that runs with your files and your passwords**, or a service that **receives your data**. Treat it like installing an app. Ask 5 questions:\n\n| # | Ask | Where to check | \ud83d\udea9 Red flag |\n|---|---|---|---|\n| 1 | **Who made it?** | Registry name, GitHub owner | An unknown person, not the company itself |\n| 2 | **Is it still looked after?** | GitHub: last commit, open issues | No updates for months, or marked *deprecated* |\n| 3 | **What can it reach?** | README: what folder, token or account it needs | Access to all your files, or a token with full rights |\n| 4 | **Where does my data go?** | Local or remote? Hosted by whom? | A remote server outside the client's country or company, or a third party holding your token |\n| 5 | **Did a scan find problems?** | Security scan on Smithery (MCP-Scan) | Warnings, or no scan at all |\n\n**Then, when you use it:**\n\n- \ud83d\udccc **Pin the version** (e.g. `@modelcontextprotocol/server-memory@<version>`), so it can't change behind your back.\n- \ud83e\uddea **Try it first** with a test folder or test account, never real client data.\n\n> \u26a0\ufe0f **\"It's in the official registry\" \u2260 \"it's safe\".** The registry only checks **who** published a server, not **what its code does**.\n>\n> \u26a0\ufe0f **\"Lots of people use it\" \u2260 \"it's safe\".** Popularity only tells you it's widely used.\n\n---\n\n## \ud83d\udd11 Remember\n\n1. **Remote = URL.** Someone else runs it; you call it.\n2. **Local = command.** You start it: `npx` for JavaScript, `uvx` for Python.\n3. **For your agent, it makes no difference.** The tools look and work exactly the same, wherever the server lives.\n4. **Find servers from the company itself first, check them before you trust them, and pin the version.**\n",
+            "id": "lc_15d8a168-98b4-4b72-add7-3761180e73ab"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_text_file",
+        "id": "8195b4af-5439-4ac2-9c01-4ad1c1202853",
+        "tool_call_id": "call_EWlalddpzD2gFunqht4Hti7l",
+        "artifact": {
+          "structured_content": {
+            "content": "# Where Does an MCP Server Live?\n\nEvery MCP server lives in **one of two places**. That one fact decides how you connect to it.\n\n| | \u2601\ufe0f **Remote** | \ud83d\udcbb **Local** |\n|---|---|---|\n| **Where it runs** | On someone else's computer | On **your** computer |\n| **What you do** | You **call** it | You **start** it |\n| **What you need** | A **URL** | A **command** (`npx` or `uvx`) |\n| **Transport** | `http` | `stdio` |\n\n---\n\n## \u2601\ufe0f Remote server: you need a **URL**\n\nSomeone else (LangChain, GitHub, ...) runs the server for you. It's always on. You just call its address.\n\n```python\n\"langchain-docs\": {\n    \"transport\": \"http\",\n    \"url\": \"https://docs.langchain.com/mcp\",\n}\n```\n\n\ud83d\udcde **Like calling a company:** you only need their phone number.\n\n---\n\n## \ud83d\udcbb Local server: you need a **command**\n\nNobody runs the server for you. Your code **starts** it on your laptop when it needs it.\n\nThe command depends on **which language the server was written in**:\n\n| Server written in | Command | You need installed | Where the server comes from |\n|---|---|---|---|\n| **JavaScript** | `npx` | Node.js | npm |\n| **Python** | `uvx` | uv | PyPI |\n\n### \ud83d\udee0\ufe0f How to install them\n\n| | **Node.js** (gives you `npx`) | **uv** (gives you `uvx`) |\n|---|---|---|\n| **Easiest way** | Download the **LTS** installer from [nodejs.org](https://nodejs.org) and click through it | In your terminal (with your course environment active): `pip install uv` |\n| **Windows** (alternative) | `winget install OpenJS.NodeJS.LTS` | `powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 \\| iex\"` |\n| **Mac** (alternative) | `brew install node` | `curl -LsSf https://astral.sh/uv/install.sh \\| sh` |\n| **Check it worked** | `node -v` and `npx -v` | `uvx --version` |\n| **Then** | Restart VS Code | Restart VS Code / the notebook kernel |\n\n### JavaScript server: `npx`\n\n```python\n\"filesystem\": {\n    \"transport\": \"stdio\",\n    \"command\": \"npx\",\n    \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"sample_docs\"],\n}\n```\n\n### Python server: `uvx`\n\n```python\n\"time\": {\n    \"transport\": \"stdio\",\n    \"command\": \"uvx\",\n    \"args\": [\"mcp-server-time\"],\n}\n```\n\n\ud83e\uddd1\u200d\ud83d\udcbc **Like bringing an assistant to your desk:** they aren't there until you invite them.\n\n> \ud83d\udca1 `npx` and `uvx` do the same job for different languages: **download the server and start it** in one step.\n\n---\n\n## How do I know which one to use?\n\nLook at the server's README. It always tells you one of these:\n\n| If the README shows... | It's a... | You write... |\n|---|---|---|\n| A link like `https://.../mcp` | \u2601\ufe0f Remote server | `\"transport\": \"http\"` + `\"url\"` |\n| `npx ...` | \ud83d\udcbb Local JavaScript server | `\"transport\": \"stdio\"` + `\"command\": \"npx\"` |\n| `uvx ...` | \ud83d\udcbb Local Python server | `\"transport\": \"stdio\"` + `\"command\": \"uvx\"` |\n\n---\n\n## \ud83d\udd0e Where do I find MCP servers?\n\nLook in this order:\n\n| # | Where | What you get there | Trust |\n|---|---|---|---|\n| 1 | **The company's own docs** (GitHub, Notion, Stripe, Atlassian...) | The **official** server for their product, with setup and login steps | \u2705 Best choice |\n| 2 | **Official MCP Registry**: [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) | The official list. Each entry shows the **package name**, **version**, **local or remote**, and a **link to the code** | \u2705 Publisher is checked, code is not |\n| 3 | **Smithery**: [smithery.ai](https://smithery.ai) | Big catalog with **usage numbers**, a **security scan** result, ready **install commands**, and an option to **run the server for you** (hosted) | \u26a0\ufe0f Check each server |\n| 4 | **PulseMCP** ([pulsemcp.com](https://www.pulsemcp.com)), **mcp.so** | Large community directories with search and short descriptions. Good for **discovering ideas** | \u26a0\ufe0f Anyone can be listed |\n| 5 | **Reference servers**: [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | 7 small example servers (Filesystem, Time, Fetch...) | \ud83c\udf93 For **learning** only |\n\n> \ud83d\udca1 **Quick tip:** in the official registry, a name like `io.github.<company>/...` or `com.<company>/...` means that company really published it.\n\n---\n\n## \ud83d\udee1\ufe0f Can I trust this server?\n\nAn MCP server is **code that runs with your files and your passwords**, or a service that **receives your data**. Treat it like installing an app. Ask 5 questions:\n\n| # | Ask | Where to check | \ud83d\udea9 Red flag |\n|---|---|---|---|\n| 1 | **Who made it?** | Registry name, GitHub owner | An unknown person, not the company itself |\n| 2 | **Is it still looked after?** | GitHub: last commit, open issues | No updates for months, or marked *deprecated* |\n| 3 | **What can it reach?** | README: what folder, token or account it needs | Access to all your files, or a token with full rights |\n| 4 | **Where does my data go?** | Local or remote? Hosted by whom? | A remote server outside the client's country or company, or a third party holding your token |\n| 5 | **Did a scan find problems?** | Security scan on Smithery (MCP-Scan) | Warnings, or no scan at all |\n\n**Then, when you use it:**\n\n- \ud83d\udccc **Pin the version** (e.g. `@modelcontextprotocol/server-memory@<version>`), so it can't change behind your back.\n- \ud83e\uddea **Try it first** with a test folder or test account, never real client data.\n\n> \u26a0\ufe0f **\"It's in the official registry\" \u2260 \"it's safe\".** The registry only checks **who** published a server, not **what its code does**.\n>\n> \u26a0\ufe0f **\"Lots of people use it\" \u2260 \"it's safe\".** Popularity only tells you it's widely used.\n\n---\n\n## \ud83d\udd11 Remember\n\n1. **Remote = URL.** Someone else runs it; you call it.\n2. **Local = command.** You start it: `npx` for JavaScript, `uvx` for Python.\n3. **For your agent, it makes no difference.** The tools look and work exactly the same, wherever the server lives.\n4. **Find servers from the company itself first, check them before you trust them, and pin the version.**\n"
+          }
+        },
+        "status": "success"
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "Title: Transports\nLink: https://docs.langchain.com/oss/javascript/langchain/mcp/index#transports\nPage: oss/javascript/langchain/mcp/index\nContent: ## Transports\n\n[`MCPAdapter`](https://reference.langchain.com/javascript/langchain-mcp-adapters/MCPAdapter) accepts a map of named server definitions. It selects the transport from each definition, so one adapter can connect to local stdio servers and remote HTTP servers at the same time:\n\n```ts theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\nimport { MCPAdapter } from \"@langchain/mcp-adapters\";\n\nconst adapter = new MCPAdapter({\n  servers: {\n    // A local server launched as a subprocess over stdio.\n    local: {\n      command: \"node\",\n      args: [\"./weather-server.js\"],\n    },\n\n    // A remote server reached over Streamable HTTP.\n    remote: {\n      url: \"https://example.com/mcp\",\n    },\n\n    // A legacy server with an explicit SSE endpoint.\n    legacy: {\n      url: \"https://legacy.example.com/sse\",\n      transport: \"sse\",\n      mode: \"legacy\",\n    },\n  },\n});\n\ntry {\n  const tools = await adapter.listTools();\n  // Pass tools to createAgent({ tools, ... }).\n} finally {\n  await adapter.close();\n}\n```\n\n<Card title=\"View example trace\" icon=\"chart-line\" href=\"https://smith.langchain.com/public/d9a802f7-75cf-45b4-b0f6-f4a62fa06e27/r\" arrow horizontal>\n  Open a public LangSmith run for this example.\n</Card>\n\nEach server definition can use one of these transports:\n\n* **stdio**: Provide `command` and `args`. The adapter starts the command as a child process and communicates over standard input and output.\n* **Streamable HTTP**: Provide `url`. This is the default transport for URL-based servers, so `transport: \"http\"` is optional.\n* **SSE**: Provide `url` and set `transport: \"sse\"`. Use this transport only for legacy servers that expose an SSE endpoint.\n\nTransport selection and protocol negotiation are separate. The optional `mode` setting controls which MCP protocol era the client accepts. See [Protocol eras](/oss/javascript/langchain/mcp/connections#protocol-eras).\n\n<Note>\n  For new remote servers, omit both `transport` and `mode`. The adapter uses Streamable HTTP with automatic protocol negotiation. Specify these settings only when connecting to a server with known legacy requirements.\n</Note>",
+            "id": "lc_ea73a678-27ba-413d-ab3f-27d6d6f3bd00"
+          },
+          {
+            "type": "text",
+            "text": "Title: stdio servers (default)\nLink: https://docs.langchain.com/oss/deepagents/code/mcp-tools#stdio-servers-default\nPage: oss/deepagents/code/mcp-tools\nContent: ### stdio servers (default)\n\nstdio servers are spawned as child processes. Deep Agents Code communicates with them over stdin/stdout.\n\nApproved project servers and servers supplied through `--mcp-config` start in the session working directory. User-level and plugin servers inherit the backend process directory instead. Set a server's `cwd` field to override either default.\n\n```json title=\"mcp-config.json\" theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n{\n  \"mcpServers\": {\n    \"filesystem\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/tmp\"],\n      \"env\": {}\n    },\n    \"github\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"],\n      \"env\": { \"GITHUB_TOKEN\": \"your-token\" }\n    }\n  }\n}\n```",
+            "id": "lc_8096b7c4-ce53-45a9-bfd5-2248b9a58b66"
+          },
+          {
+            "type": "text",
+            "text": "Title: Transports\nLink: https://docs.langchain.com/oss/python/langchain/mcp/index#transports\nPage: oss/python/langchain/mcp/index\nContent: ## Transports\n\n[`MCPAdapter`](https://reference.langchain.com/python/langchain/mcp/adapter/MCPAdapter) infers the transport from the target you provide. The target is the only difference between an in-process server, a local script over stdio, and a remote URL:\n\n```python theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\nfrom pathlib import Path\n\nfrom langchain.mcp import MCPAdapter\n\n# An in-process FastMCP server: no subprocess, no socket. Ideal for tests.\nin_memory = MCPAdapter(server)  # a FastMCP instance\n\n# A script path is launched over stdio, one subprocess per adapter.\nstdio = MCPAdapter(Path(\"weather_server.py\"))\n\n# A string must be an http(s) URL, reached over streamable HTTP.\nhttp = MCPAdapter(\"https://example.com/mcp\")\n```\n\nA target can be any of the following:\n\n* **An `http`/`https` URL** (`str`): reached over Streamable HTTP.\n* **A script path** (`Path`): launched as a subprocess over stdio.\n* **A transport object** (`StreamableTransport`): a preconfigured transport object. See [Client Transports](https://gofastmcp.com/clients/transports).\n* **An in-process `FastMCP` server**: connected in memory, without a subprocess or socket.\n* **An `MCPConfig` dict** (`{\"mcpServers\": {...}}`): several servers behind one adapter. See [Connections](/oss/python/langchain/mcp/connections#multiple-servers).\n* **A prebuilt `fastmcp.Client`**: for full control over transport, [caching](https://gofastmcp.com/clients/client#response-caching), and [protocol negotiation](https://gofastmcp.com/clients/client#protocol-negotiation).\n\n<Warning>\n  A `str` target must be an `http` or `https` URL. FastMCP resolves a string by testing it as a filesystem path before testing it as a URL, so a string naming an existing `.py` or `.js` file would launch that file as a subprocess. Because strings are the form a target most often arrives in from configuration or from a model, [`MCPAdapter`](https://reference.langchain.com/python/langchain/mcp/adapter/MCPAdapter) rejects strings that do not match the shape of a URL.\n</Warning>",
+            "id": "lc_ce6882c8-9800-45bf-a4e4-701245e6e2e4"
+          },
+          {
+            "type": "text",
+            "text": "Title: Add MCP servers\nLink: https://docs.langchain.com/langsmith/javascript/managed-deep-agents-mcp-connectors#add-mcp-servers\nPage: langsmith/javascript/managed-deep-agents-mcp-connectors\nContent: ## Add MCP servers\n\nUse an MCP server when tools already live on a remote MCP server and you want MDA to load them without importing them into the agent definition.\n\n<Steps>\n  <Step title=\"Declare the servers\" id=\"declare-the-servers\">\n    Use `defineMcp` to declare one or more remote servers:\n\n    ```ts tools/mcp.ts theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n    import { defineMcp } from \"managed-deepagents\";\n\n    export const mcp = defineMcp({\n      servers: {\n        langchainDocs: {\n          transport: \"http\",\n          url: \"https://docs.langchain.com/mcp\",\n        },\n      },\n    });\n    ```\n\n    The module must export a named `mcp`. A project has one MCP declaration, so declare every server in it. The file name also accepts the `.tsx`, `.mts`, or `.cts` variants.\n\n    Managed Deep Agents supports Streamable HTTP (`\"http\"`) and legacy SSE (`\"sse\"`) transports. Stdio MCP servers are not supported. Expose a stdio server over HTTP or implement its operation as an [authored tool](/langsmith/javascript/managed-deep-agents-tools) instead.\n\n    For connection options, see [Manage connections](/langsmith/javascript/managed-deep-agents-connections).\n  </Step>\n\n  <Step title=\"Select tools (Optional)\" id=\"select-tools\">\n    By default, Managed Deep Agents exposes every tool from each server. To expose only selected tools, set an allowlist inside that server's configuration:\n\n    ```ts theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n    {\n      transport: \"http\",\n      url: \"https://docs.langchain.com/mcp\",\n      includeTools: [\"search_docs_by_lang_chain\"],\n    }\n    ```\n\n    To expose every tool except selected tools, replace `includeTools` with `excludeTools`.\n\n    You can use both options together. The denylist applies after the allowlist, and the same tool cannot appear in both lists.\n\n    Selection uses raw MCP tool names before Managed Deep Agents prefixes them. Tool names are prefixed with the server name by default to avoid collisions. For example, the `search_docs_by_lang_chain` tool from the `langchainDocs` server is exposed as `langchainDocs__search_docs_by_lang_chain`.\n  </Step>\n\n  <Step title=\"Pass credentials (Optional)\" id=\"pass-credentials\">\n    If an MCP server requires credentials, declare a connection on the server config and create that connection in the workspace.\n\n    * **MCP OAuth**: For servers that advertise OAuth and support automatic client registration, create with `mda connections create <slug>` (inferred from the MCP declaration) or `mda connections create <slug> --mcp <url>`. You do not supply a client ID or secret.\n    * **Opaque secret or general OAuth**: For a static API key, or for a BYOT OAuth app you register yourself, create an opaque secret or general OAuth connection, then set the server's `connection` option to `connections.get(...)`.\n\n    For create modes, owners, and runtime authorization, see [Manage connections](/langsmith/javascript/managed-deep-agents-connections).\n  </Step>\n</Steps>",
+            "id": "lc_70d56b5b-00f8-4f50-92a0-66fc2be490de"
+          },
+          {
+            "type": "text",
+            "text": "Title: Add MCP servers\nLink: https://docs.langchain.com/langsmith/python/managed-deep-agents-mcp-connectors#add-mcp-servers\nPage: langsmith/python/managed-deep-agents-mcp-connectors\nContent: ## Add MCP servers\n\nUse an MCP server when tools already live on a remote MCP server and you want MDA to load them without importing them into the agent definition.\n\n<Steps>\n  <Step title=\"Declare the servers\" id=\"declare-the-servers\">\n    Use `define_mcp` to declare one or more remote servers:\n\n    ```python tools/mcp.py theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n    from managed_deepagents import define_mcp\n\n    mcp = define_mcp(\n        servers={\n            \"langchainDocs\": {\n                \"transport\": \"http\",\n                \"url\": \"https://docs.langchain.com/mcp\",\n            },\n        },\n    )\n    ```\n\n    The module must export a module-level `mcp`. A project has one MCP declaration, so declare every server in it.\n\n    Managed Deep Agents supports Streamable HTTP (`\"http\"`) and legacy SSE (`\"sse\"`) transports. Stdio MCP servers are not supported. Expose a stdio server over HTTP or implement its operation as an [authored tool](/langsmith/python/managed-deep-agents-tools) instead.\n\n    For connection options, see [Manage connections](/langsmith/python/managed-deep-agents-connections).\n  </Step>\n\n  <Step title=\"Select tools (Optional)\" id=\"select-tools\">\n    By default, Managed Deep Agents exposes every tool from each server. To expose only selected tools, set an allowlist inside that server's configuration:\n\n    ```python theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n    {\n        \"transport\": \"http\",\n        \"url\": \"https://docs.langchain.com/mcp\",\n        \"include_tools\": [\"search_docs_by_lang_chain\"],\n    }\n    ```\n\n    To expose every tool except selected tools, replace `include_tools` with `exclude_tools`.\n\n    You can use both options together. The denylist applies after the allowlist, and the same tool cannot appear in both lists.\n\n    Selection uses raw MCP tool names before Managed Deep Agents prefixes them. Tool names are prefixed with the server name by default to avoid collisions. For example, the `search_docs_by_lang_chain` tool from the `langchainDocs` server is exposed as `langchainDocs__search_docs_by_lang_chain`.\n  </Step>\n\n  <Step title=\"Pass credentials (Optional)\" id=\"pass-credentials\">\n    If an MCP server requires credentials, declare a connection on the server config and create that connection in the workspace.\n\n    * **MCP OAuth**: For servers that advertise OAuth and support automatic client registration, create with `mda connections create <slug>` (inferred from the MCP declaration) or `mda connections create <slug> --mcp <url>`. You do not supply a client ID or secret.\n    * **Opaque secret or general OAuth**: For a static API key, or for a BYOT OAuth app you register yourself, create an opaque secret or general OAuth connection, then set the server's `connection` option to `connections.get(...)`.\n\n    For create modes, owners, and runtime authorization, see [Manage connections](/langsmith/python/managed-deep-agents-connections).\n  </Step>\n</Steps>",
+            "id": "lc_1ffdd324-e22c-4251-9c1a-e93fe3b6092e"
+          },
+          {
+            "type": "text",
+            "text": "Title: Protocol eras\nLink: https://docs.langchain.com/oss/javascript/langchain/mcp/connections#protocol-eras\nPage: oss/javascript/langchain/mcp/connections\nContent: ## Protocol eras\n\nThe adapter negotiates the MCP protocol separately for each server. The default `mode: \"auto\"` supports modern and legacy servers in the same adapter.\n\nThe legacy era starts with an `initialize` handshake. The modern era uses `server/discover` to discover server capabilities. Override `mode` when you need to require a specific era:\n\n```ts theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\nimport { MCPAdapter } from \"@langchain/mcp-adapters\";\n\nasync function listToolsAcrossEras(modernUrl: string, legacyUrl: string) {\n  const adapter = new MCPAdapter({\n    servers: {\n      current: { url: modernUrl, mode: \"modern\" },\n      legacy: { url: legacyUrl, mode: \"legacy\" },\n    },\n  });\n\n  try {\n    const tools = await adapter.listTools();\n    console.log(tools.map((tool) => tool.name));\n  } finally {\n    await adapter.close();\n  }\n}\n```\n\n<Card title=\"View example trace\" icon=\"chart-line\" href=\"https://smith.langchain.com/public/0263dee8-0ce0-48a5-ba30-62bea305de1b/r\" arrow horizontal>\n  Open a public LangSmith run for this example.\n</Card>\n\nEach server's `mode` controls its negotiation independently:\n\n* **`\"auto\"`** (the default): Try the current protocol and fall back for a legacy-only server.\n* **`\"modern\"`**: Require protocol version `2026-07-28` and fail instead of using legacy MCP.\n* **`\"legacy\"`**: Skip modern probing and use the legacy client interface.\n\nIn `\"auto\"` mode, a URL server that answers the Streamable HTTP request with 404 or 405 is retried over SSE, at the same URL and then with a trailing `/mcp` replaced by `/sse`. In `\"legacy\"` mode, any 4xx falls back unless `automaticSSEFallback: false`.\n\n`setLoggingLevel()` is legacy-only and throws when a connected server negotiated the modern protocol; set `logLevel` on each modern server instead.",
+            "id": "lc_cfd9193a-fd0e-45de-a406-54805a9eeb52"
+          },
+          {
+            "type": "text",
+            "text": "Title: Connections\nLink: https://docs.langchain.com/oss/python/langchain/mcp/connections\nPage: oss/python/langchain/mcp/connections\nContent: <Note>\n  The `langchain.mcp` namespace requires `langchain[mcp]>=1.4.0` and is in beta. The API may change.\n</Note>\n\n[`MCPAdapter`](https://reference.langchain.com/python/langchain/mcp/adapter/MCPAdapter) opens an MCP connection, discovers tools, and returns LangChain tools your agent can call. How you pass servers in, and how long you keep the adapter open, depends on the shape of your app. The connection itself is FastMCP's; this page covers the LangChain patterns and links out to FastMCP for transport and client details.\n\nPrefer the [default lifecycle](#connection-lifecycle) unless you are connecting to several servers or deploying many concurrent runs. For what a single target can be (URL, script path, in-process server), see [Transports](/oss/python/langchain/mcp#transports).",
+            "id": "lc_1381d267-80c6-43b8-8636-dca4a71d965c"
+          },
+          {
+            "type": "text",
+            "text": "Title: Other clients\nLink: https://docs.langchain.com/langsmith/langsmith-remote-mcp#other-clients\nPage: langsmith/langsmith-remote-mcp\nContent: ### Other clients\n\nAny MCP client supporting the [Streamable HTTP transport](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/transports/#streamable-http) can connect with just the URL above\u2014using OAuth 2.1 with dynamic client registration, or a LangSmith API key in the `X-Api-Key` header.",
+            "id": "lc_f4055974-a94b-44b4-9742-68289fe6a1f7"
+          },
+          {
+            "type": "text",
+            "text": "Title: Connection configuration\nLink: https://docs.langchain.com/oss/python/migrate/langchain-mcp-adapters#connection-configuration\nPage: oss/python/migrate/langchain-mcp-adapters\nContent: ## Connection configuration\n\n`langchain-mcp-adapters` used typed connection classes. [`MCPAdapter`](https://reference.langchain.com/python/langchain/mcp/adapter/MCPAdapter) infers the transport, or you pass a `fastmcp` transport for full control.\n\n| `langchain-mcp-adapters`   | `langchain.mcp`                                                                                                                                                                                                                  |\n| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `StdioConnection`          | A `Path` target, or an `MCPConfig` entry with `command`/`args`.                                                                                                                                                                  |\n| `StreamableHttpConnection` | An `http`/`https` URL target, or an `MCPConfig` entry with `url`.                                                                                                                                                                |\n| `SSEConnection`            | `Client(SSETransport(url))`, passed to [`MCPAdapter`](https://reference.langchain.com/python/langchain/mcp/adapter/MCPAdapter). Supported, but the transport is deprecated. See [Deprecated transports](#deprecated-transports). |\n| `WebsocketConnection`      | No FastMCP transport. Migrate the server to Streamable HTTP. See [Deprecated transports](#deprecated-transports).                                                                                                                |\n| `httpx_client_factory`     | Set on a `fastmcp` transport. See [shared connection pool](/oss/python/langchain/mcp/connections#shared-connection-pool).                                                                                                        |\n| `auth` (per connection)    | Set `auth` on a `fastmcp.Client`. See [Authentication](/oss/python/langchain/mcp/auth).                                                                                                                                          |\n| `headers` (per connection) | Set on a `fastmcp` transport (`StreamableHttpTransport(url, headers=...)`).                                                                                                                                                      |",
+            "id": "lc_6da83985-0d42-4877-9693-4977d44c3603"
+          },
+          {
+            "type": "text",
+            "text": "Title: Install\nLink: https://docs.langchain.com/oss/javascript/migrate/langchain-mcp-adapters#install\nPage: oss/javascript/migrate/langchain-mcp-adapters\nContent: ## Install\n\nUpgrade the adapter and its peer dependencies:\n\n<CodeGroup>\n  ```bash npm theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  npm install @langchain/mcp-adapters@^2.0.0 @langchain/core @langchain/langgraph\n  ```\n\n  ```bash pnpm theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  pnpm add @langchain/mcp-adapters@^2.0.0 @langchain/core @langchain/langgraph\n  ```\n\n  ```bash yarn theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  yarn add @langchain/mcp-adapters@^2.0.0 @langchain/core @langchain/langgraph\n  ```\n\n  ```bash bun theme={\"theme\":{\"light\":\"catppuccin-latte\",\"dark\":\"catppuccin-mocha\"}}\n  bun add @langchain/mcp-adapters@^2.0.0 @langchain/core @langchain/langgraph\n  ```\n</CodeGroup>\n\n* **Peer dependencies**: The adapter requires `@langchain/core` 1.2.6 or later (was 1.0.0) and `@langchain/langgraph` 1.4.13 or later (was 1.4.10).\n* **MCP SDK**: The adapter includes the MCP SDK 2 client. If your code creates an SDK client for `loadMcpTools`, replace `@modelcontextprotocol/sdk` imports with `@modelcontextprotocol/client`. Import the stdio transport from `@modelcontextprotocol/client/stdio`. Add the SDK as a direct dependency if your code imports it, including to [complete an OAuth redirect](/oss/javascript/langchain/mcp/auth#complete-the-redirect).\n* **Zod 4**: The adapter validates configuration with an internal Zod 4 dependency, so configuration errors are Zod 4 errors.\n* **Debug logging**: `DEBUG=@langchain/mcp-adapters:*` no longer emits logs. Use `onConnectionError` and the per-server notification callbacks instead.",
+            "id": "lc_4cfbd502-209c-45bf-ae44-5b6c9000b548"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "search_docs_by_lang_chain",
+        "id": "8ed4e2a0-5e4c-42b5-abb6-76307cf14f5d",
+        "tool_call_id": "call_4uN28UuMR7TqjwizuLrzm6q1",
+        "artifact": null,
+        "status": "success"
+      },
+      {
+        "content": "The document **mcp_servers_local_vs_remote.md** explains that a local Filesystem MCP server is configured using the command `uvx` for Python, which starts the server on your computer. The transport method for local servers is `stdio`, allowing communication through standard input and output (source: mcp_servers_local_vs_remote.md).\n\nIn the official LangChain documentation, local stdio MCP connections are described as being initiated via the `MCPAdapter`, which can connect to both local stdio servers and remote HTTP servers simultaneously. The `stdio` transport is specifically for launching scripts as subprocesses (source: [Transports](https://docs.langchain.com/oss/python/langchain/mcp/index#transports)).\n\nUsing the `stdio` transport does not guarantee that file contents remain on the local computer when the local Python agent uses hosted ChatOpenAI. The hosted model operates independently of the local environment, meaning that while the local server may handle files locally, any data processed by the hosted model could potentially be sent to external servers, depending on the configuration and usage of the hosted model (source: [Connections](https://docs.langchain.com/oss/python/langchain/mcp/connections)).",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 242,
+            "prompt_tokens": 7994,
+            "total_tokens": 8236,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-4o-mini-2024-07-18",
+          "system_fingerprint": "fp_242228cf5a",
+          "id": "chatcmpl-EdzThNm6I99XghnwAQkusRqbn2ec6",
+          "service_tier": "default",
+          "finish_reason": "stop",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a18309-cdb6-74cd-ba4e-b90b0dc553d5-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 7994,
+          "output_tokens": 242,
+          "total_tokens": 8236,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        }
+      }
+    ]
+  },
+  "finding": "The answer incorrectly identified uvx as the command for the handout's JavaScript Filesystem example. The source uses npx. Successful tool execution did not prevent a mistaken answer.",
+  "correction": "The recheck requests the exact source command, checks the npx package name, and retains a fresh trace from both servers."
+}

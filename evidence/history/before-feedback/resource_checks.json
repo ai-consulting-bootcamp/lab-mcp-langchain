@@ -1,0 +1,22 @@
+{
+  "uri": "mintlify://skills/langchain",
+  "sha256": "1d6867cef2213f10610098210ff68444ea29f49731a412220d9d88550bf3b6bb",
+  "answer_keywords": {
+    "checkpointer": true,
+    "thread_id": true
+  },
+  "matching_lines": [
+    "46: | Invoke agent | `agent.invoke({\"messages\": [{\"role\": \"user\", \"content\": \"...\"}]}, config={\"configurable\": {\"thread_id\": \"...\"}})` |",
+    "47: | Stream agent output | `agent.stream({\"messages\": [...]}, config={\"configurable\": {\"thread_id\": \"...\"}})` |",
+    "126: 5. **Invoke**: Call `agent.invoke({\"messages\": [...]}, config={\"configurable\": {\"thread_id\": \"...\"}})` with thread_id for persistence",
+    "136: 5. **Compile**: `graph.compile(checkpointer=...)` for persistence",
+    "137: 6. **Invoke**: Pass state dict with `thread_id` for resumable execution",
+    "154: 4. **Configure**: Set environment variables, API keys, checkpointer",
+    "160: - **Missing thread_id**: Agent won't persist conversation history without `thread_id` in config. Always pass `config={\"configurable\": {\"thread_id\": \"...\"}}` for multi-turn conversations.",
+    "165: - **Context vs. thread_id confusion**: `thread_id` scopes conversation history; `context` carries per-run data (user ID, API keys). Pass both for full context.",
+    "167: - **Checkpointer required for persistence**: Without a checkpointer, agent state is lost between invocations. Use `InMemorySaver()` locally or configure persistent store in production.",
+    "180: - [ ] `thread_id` is passed in config for multi-turn conversations",
+    "181: - [ ] Checkpointer is configured (local or production)"
+  ],
+  "tool_calls": []
+}

@@ -1,0 +1,34 @@
+{
+  "run_id": "20261028T154143Z-5d8544ae",
+  "completed_at_utc": "2026-10-28T15:44:06.963112+00:00",
+  "python": "3.11.16",
+  "packages": {
+    "langchain": "1.4.6",
+    "langchain-openai": "1.7.2",
+    "langchain-mcp-adapters": "0.3.2",
+    "langgraph": "1.2.16",
+    "mcp": "1.30.0",
+    "python-dotenv": "1.2.4",
+    "httpx": "0.28.1"
+  },
+  "model": "gpt-4o-mini",
+  "filesystem_package": "@modelcontextprotocol/server-filesystem@2.0.1",
+  "scenarios": [
+    "filesystem",
+    "documentation",
+    "resource",
+    "combined",
+    "own_query",
+    "missing_price",
+    "document_analysis_1",
+    "document_analysis_2",
+    "document_analysis_3",
+    "document_analysis_4"
+  ],
+  "tool_calls": 23,
+  "combined_uses_both_servers": true,
+  "files": {
+    "sample_docs\\mcp_servers_local_vs_remote.md": "a07c14e3a50cc4748d8fa86874dc4a515b21fa20a258eb45adfc501469a5f984",
+    "sample_docs\\mcp_tools_resources_prompts.md": "97acd4f3c0d47642700d4bc6d6b21d11884181fa0ca6e45873eebf1d347301dd"
+  }
+}
