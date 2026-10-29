@@ -1,0 +1,15 @@
+OFFLINE_RETRIEVAL_TEST: PASS
+{
+  "query": "Who controls MCP resources, and does reading one change data?",
+  "matches": [
+    {
+      "id": "N2",
+      "source": "mcp_tools_resources_prompts.md",
+      "section": "Resources: providing information",
+      "text": "A resource is information the application reads from the server and hands to the LLM as context. Reading a resource never creates, changes or deletes anything.",
+      "score": 2
+    }
+  ],
+  "notice": "Evidence is limited to the four curated course-note records."
+}
+UNSUPPORTED_QUERY_TEST: PASS (no fabricated matches)

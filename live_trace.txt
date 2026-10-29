@@ -1,0 +1,21 @@
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
+Processing request of type ListToolsRequest
+Processing request of type ListResourcesRequest
+Processing request of type ReadResourceRequest
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+Processing request of type ListToolsRequest
+Processing request of type ListToolsRequest
+DISCOVERED_TOOLS: ['search_course_notes']
+MCP_TOOL_EVIDENCE:
+ [{'type': 'text', 'text': '{\n  "query": "Who controls MCP resources, and does reading one change data?",\n  "matches": [\n    {\n      "id": "N2",\n      "source": "mcp_tools_resources_prompts.md",\n      "section": "Resources: providing information",\n      "text": "A resource is information the application reads from the server and hands to the LLM as context. Reading a resource never creates, changes or deletes anything.",\n      "score": 2\n    }\n  ],\n  "notice": "Evidence is limited to the four curated course-note records."\n}', 'id': 'lc_a5918797-c681-4603-b3ef-d04658cecff4'}]
+DISCOVERED_RESOURCES: ['course://mcp/overview']
+RESOURCE_PREVIEW: uri=AnyUrl('course://mcp/overview') mimeType='text/plain' meta=None text='[\n  {\n    "id": "N1",\n    "source": "mcp_tools_resources_prompts.md",\n    "section": "The three at a glance",\n    "text": "Tools are functions the LLM can call to act. The model decides when to call a tool."\n  },\n  {\n    "id": "N2",\n    "source": "mcp_tools_resources_prompts.md",\n    "section": "Resources: providing information",\n    "text": "A resource is information the application reads from the server and ha
+AGENT_TRACE:
+{"type": "HumanMessage", "content": "Who controls MCP resources, and does reading one change data?", "tool_calls": []}
+{"type": "AIMessage", "content": "", "tool_calls": [{"name": "search_course_notes", "args": {"query": "MCP resources control"}, "id": "call_BKcYkd2c1ZgVQ4H5yBB0eXwR", "type": "tool_call"}, {"name": "search_course_notes", "args": {"query": "reading MCP data change"}, "id": "call_xU4Nz03C9IYbF11TSu1jdCCO", "type": "tool_call"}]}
+{"type": "ToolMessage", "content": "[{'type': 'text', 'text': '{\\n  \"query\": \"MCP resources control\",\\n  \"matches\": [\\n    {\\n      \"id\": \"N2\",\\n      \"source\": \"mcp_tools_resources_prompts.md\",\\n      \"section\": \"Resources: providing information\",\\n      \"text\": \"A resource is information the application reads from the server and hands to the LLM as context. Reading a resource never creates, changes or deletes anything.\",\\n      \"score\": 1\\n    }\\n  ],\\n  \"notice\": \"Evidence is limited to the four curated course-note records.\"\\n}', 'id': 'lc_8fc67a75-e285-4b8c-ae85-0c44282d9f41'}]", "tool_calls": []}
+{"type": "ToolMessage", "content": "[{'type': 'text', 'text': '{\\n  \"query\": \"reading MCP data change\",\\n  \"matches\": [\\n    {\\n      \"id\": \"N2\",\\n      \"source\": \"mcp_tools_resources_prompts.md\",\\n      \"section\": \"Resources: providing information\",\\n      \"text\": \"A resource is information the application reads from the server and hands to the LLM as context. Reading a resource never creates, changes or deletes anything.\",\\n      \"score\": 1\\n    }\\n  ],\\n  \"notice\": \"Evidence is limited to the four curated course-note records.\"\\n}', 'id': 'lc_36f8a65f-5d46-4d0d-a579-251750e8a2a5'}]", "tool_calls": []}
+{"type": "AIMessage", "content": "MCP resources are controlled by the application, which reads information from the server and provides it to the LLM (Language Model) as context. Importantly, reading a resource does not create, change, or delete any data (Record ID: N2, source: mcp_tools_resources_prompts.md).", "tool_calls": []}
+FINAL_ANSWER: MCP resources are controlled by the application, which reads information from the server and provides it to the LLM (Language Model) as context. Importantly, reading a resource does not create, change, or delete any data (Record ID: N2, source: mcp_tools_resources_prompts.md).
