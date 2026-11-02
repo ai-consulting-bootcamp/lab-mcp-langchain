@@ -8,6 +8,16 @@ This repository contains everything you need for this lab.
 
 - [`instructions.md`](./instructions.md) — the lab instructions
 - [`rubric.md`](./rubric.md) — how your submission is graded; this is what the AI reviewer checks your PR against
+- [`lab_proof.md`](./lab_proof.md) — the submission evidence and trace
+
+## Local setup
+
+Use Python 3.10 or newer, select the `bootcamp-env` kernel in VS Code, and open
+[`mcp_langchain.ipynb`](./mcp_langchain.ipynb). Run its cells to install the lab dependencies
+and verify the environment.
+
+Create `.env` from `.env.example` and set `OPENAI_API_KEY`. The verification cell confirms
+that the key is loaded without printing its value.
 
 ## How to complete this lab
 
